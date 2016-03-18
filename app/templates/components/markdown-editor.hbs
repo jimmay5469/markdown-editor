@@ -9,23 +9,18 @@
   {{/post.title}}
   {{#post.body}}
     <div>
-      <button {{action 'togglePreview'}}>
-        {{#if showPreview}}
-          Edit
-        {{else}}
-          Preview
-        {{/if}}
-      </button>
+      <button {{action 'toggleEditor'}} class={{if showEditor 'toggle-button--active'}}>Editor</button>
+      <button {{action 'togglePreview'}} class={{if showPreview 'toggle-button--active'}}>Preview</button>
     </div>
-    {{#if showPreview}}
-      {{markdown-renderer value=markdown}}
-    {{/if}}
     {{!-- we must only hide or the value gets mangled --}}
     {{content-editable
-      class=(if showPreview 'content-editor--hidden' 'content-editor')
+      class=(if showEditor 'content-editor' 'content-editor--hidden')
       value=markdown
       placeholder='Content'
       type='text'
     }}
+    {{#if showPreview}}
+      {{markdown-renderer value=markdown}}
+    {{/if}}
   {{/post.body}}
 {{/jekyll-post-layout}}
