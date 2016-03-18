@@ -1,8 +1,9 @@
 .MarkdownEditorComponent {
-  input, textarea {
+  .content-editor:focus {
     width: 100%;
+    outline: none;
   }
-  textarea {
-    height: 300px;
+  .content-editor--hidden {
+    display: none;
   }
 }

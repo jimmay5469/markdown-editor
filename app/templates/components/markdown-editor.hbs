@@ -1,25 +1,31 @@
-{{#if showPreview}}
-  {{#jekyll-post-layout as |post|}}
-    {{#post.title}}
-      {{title}}
-    {{/post.title}}
-    {{#post.body}}
+{{#jekyll-post-layout as |post|}}
+  {{#post.title}}
+    {{content-editable
+      class='content-editor'
+      value=title
+      placeholder="Title"
+      type="text"
+    }}
+  {{/post.title}}
+  {{#post.body}}
+    <div>
+      <button {{action 'togglePreview'}}>
+        {{#if showPreview}}
+          Edit
+        {{else}}
+          Preview
+        {{/if}}
+      </button>
+    </div>
+    {{#if showPreview}}
       {{markdown-renderer value=markdown}}
-      <div>
-        <button {{action 'togglePreview'}}>Edit</button>
-      </div>
-    {{/post.body}}
-  {{/jekyll-post-layout}}
-{{else}}
-  {{#jekyll-post-layout as |post|}}
-    {{#post.title}}
-      {{input value=title}}
-    {{/post.title}}
-    {{#post.body}}
-      {{textarea value=markdown}}
-      <div>
-        <button {{action 'togglePreview'}}>Preview</button>
-      </div>
-    {{/post.body}}
-  {{/jekyll-post-layout}}
-{{/if}}
+    {{/if}}
+    {{!-- we must only hide or the value gets mangled --}}
+    {{content-editable
+      class=(if showPreview 'content-editor--hidden' 'content-editor')
+      value=markdown
+      placeholder='Content'
+      type='text'
+    }}
+  {{/post.body}}
+{{/jekyll-post-layout}}
