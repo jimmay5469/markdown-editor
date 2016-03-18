@@ -12,15 +12,21 @@
       <button {{action 'toggleEditor'}} class={{if showEditor 'toggle-button--active'}}>Editor</button>
       <button {{action 'togglePreview'}} class={{if showPreview 'toggle-button--active'}}>Preview</button>
     </div>
-    {{!-- we must only hide or the value gets mangled --}}
-    {{content-editable
-      class=(if showEditor 'content-editor' 'content-editor--hidden')
-      value=markdown
-      placeholder='Content'
-      type='text'
-    }}
-    {{#if showPreview}}
-      {{markdown-renderer value=markdown}}
-    {{/if}}
+    <div>
+      {{!-- we must only hide or the content-editable value gets mangled --}}
+      <div class='panel {{if showEditor '' 'panel--hidden'}}' style='width: {{panelWidth}}%;'>
+        {{content-editable
+          class='content-editor markdown-input'
+          value=markdown
+          placeholder='Content'
+          type='text'
+        }}
+      </div>
+      {{#if showPreview}}
+        <div class='panel' style='width: {{panelWidth}}%;'>
+          {{markdown-renderer value=markdown}}
+        </div>
+      {{/if}}
+    </div>
   {{/post.body}}
 {{/jekyll-post-layout}}

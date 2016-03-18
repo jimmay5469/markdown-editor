@@ -3,10 +3,19 @@
     width: 100%;
     outline: none;
   }
-  .content-editor--hidden {
-    display: none;
-  }
   .toggle-button--active {
     font-weight: bold;
+  }
+  .panel {
+    display: inline-block;
+    vertical-align: top;
+  }
+  .panel--hidden {
+    display: none;
+  }
+  .markdown-input {
+    color: #FFFFFF;
+    background-color: #666666;
+    min-height: 300px;
   }
 }
