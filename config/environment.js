@@ -20,7 +20,7 @@ module.exports = function(environment) {
         mainCss: '/css/main.css',
         siteTitle: 'Jimmy Lauzau',
         siteDescription: 'developer <a href="https://twitter.com/ahalogy">@ahalogy</a>, organizer <a href="https://twitter.com/embernati">@embernati</a>, mountain biker, hiker, and dad',
-        baseUrl: 'http://www.jimmylauzau.com/',
+        baseUrl: 'http://www.jimmylauzau.com',
         pages: [
           { title: 'About', url: 'http://www.jimmylauzau.com/about/' },
           { title: 'Posts', url: 'http://www.jimmylauzau.com/' },
