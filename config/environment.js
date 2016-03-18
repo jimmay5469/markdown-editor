@@ -4,7 +4,8 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'markdown-editor',
     environment: environment,
-    baseURL: '/',
+    baseURL: '/markdown-editor/',
+    jekyllCss: '/css/main.css',
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
@@ -25,6 +26,8 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.baseURL = '/';
+    ENV.jekyllCss = 'http://www.jimmylauzau.com/css/main.css';
   }
 
   if (environment === 'test') {
