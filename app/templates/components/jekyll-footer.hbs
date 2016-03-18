@@ -1,0 +1,33 @@
+<footer class="site-footer">
+
+  <div class="wrapper">
+
+    <!--<h2 class="footer-heading">{{ site.title }}</h2>-->
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>{{jekyll.siteTitle}}</li>
+          <li><a href="mailto:{{jekyll.email}}">{{jekyll.email}}</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          <li>
+            {{github-icon username=jekyll.githubUsername}}
+          </li>
+          <li>
+            {{twitter-icon username=jekyll.githubUsername}}
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>{{{jekyll.siteDescription}}}</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>

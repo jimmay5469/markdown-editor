@@ -19,13 +19,17 @@ module.exports = function(environment) {
       jekyll: {
         mainCss: '/css/main.css',
         siteTitle: 'Jimmy Lauzau',
+        siteDescription: 'developer <a href="https://twitter.com/ahalogy">@ahalogy</a>, organizer <a href="https://twitter.com/embernati">@embernati</a>, mountain biker, hiker, and dad',
         baseUrl: 'http://www.jimmylauzau.com/',
         pages: [
           { title: 'About', url: 'http://www.jimmylauzau.com/about/' },
           { title: 'Posts', url: 'http://www.jimmylauzau.com/' },
           { title: 'Projects', url: 'http://www.jimmylauzau.com/projects/' },
           { title: 'Talks', url: 'http://www.jimmylauzau.com/talks/' }
-        ]
+        ],
+        email: 'jimmy@jimmylauzau.com',
+        githubUsername: 'jimmay5469',
+        twitterUsername: 'jimmay5469'
       },
     }
   };
