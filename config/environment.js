@@ -5,7 +5,6 @@ module.exports = function(environment) {
     modulePrefix: 'markdown-editor',
     environment: environment,
     baseURL: '/markdown-editor/',
-    jekyllCss: '/css/main.css',
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
@@ -17,6 +16,17 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+      jekyll: {
+        mainCss: '/css/main.css',
+        siteTitle: 'Jimmy Lauzau',
+        baseUrl: 'http://www.jimmylauzau.com/',
+        pages: [
+          { title: 'About', url: 'http://www.jimmylauzau.com/about/' },
+          { title: 'Posts', url: 'http://www.jimmylauzau.com/' },
+          { title: 'Projects', url: 'http://www.jimmylauzau.com/projects/' },
+          { title: 'Talks', url: 'http://www.jimmylauzau.com/talks/' }
+        ]
+      },
     }
   };
 
@@ -27,7 +37,7 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
     ENV.baseURL = '/';
-    ENV.jekyllCss = 'http://www.jimmylauzau.com/css/main.css';
+    ENV.APP.jekyll.mainCss = 'http://www.jimmylauzau.com/css/main.css';
   }
 
   if (environment === 'test') {
