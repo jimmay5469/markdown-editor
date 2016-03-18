@@ -1,5 +1,25 @@
-{{input value=title}}
-{{textarea value=markdown}}
-{{#jekyll-post-layout title=title}}
-  {{markdown-renderer value=markdown}}
-{{/jekyll-post-layout}}
+{{#if showPreview}}
+  {{#jekyll-post-layout as |post|}}
+    {{#post.title}}
+      {{title}}
+    {{/post.title}}
+    {{#post.body}}
+      {{markdown-renderer value=markdown}}
+      <div>
+        <button {{action 'togglePreview'}}>Edit</button>
+      </div>
+    {{/post.body}}
+  {{/jekyll-post-layout}}
+{{else}}
+  {{#jekyll-post-layout as |post|}}
+    {{#post.title}}
+      {{input value=title}}
+    {{/post.title}}
+    {{#post.body}}
+      {{textarea value=markdown}}
+      <div>
+        <button {{action 'togglePreview'}}>Preview</button>
+      </div>
+    {{/post.body}}
+  {{/jekyll-post-layout}}
+{{/if}}
