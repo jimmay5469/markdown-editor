@@ -1,24 +1,53 @@
 import Ember from 'ember';
 import computed from 'ember-computed-decorators';  // jshint ignore:line
+import moment from 'moment';
 
 export default Ember.Component.extend({
   classNames: ['MarkdownEditorComponent'],
 
   title: 'An awesome post title',
   markdown: 'Hello __world__!',
-  showEditor: true,
-  showPreview: true,
 
   /* jshint ignore:start */
-  @computed('showEditor', 'showPreview')
+  @computed('title')
   /* jshint ignore:end */
-  panelWidth(showEditor, showPreview) {
-    if (showEditor && showPreview) {
-      return 49;
+  jekyllFilename(title) {
+    return `${moment().format('YYYY-MM-DD')}-${Ember.String.dasherize(title.toLowerCase())}.md`;
+  },
+
+  /* jshint ignore:start */
+  @computed('title', 'markdown')
+  /* jshint ignore:end */
+  jekyllPost(title, markdown) {
+    return `---
+layout: post
+title: "${title}"
+date: ${moment().format('YYYY-MM-DD HH:mm:ss ZZ')}
+---
+{% raw %}
+${markdown.trim()}
+{% endraw %}`;
+  },
+
+  showEditor: true,
+  showPreview: true,
+  showJekyll: false,
+
+  /* jshint ignore:start */
+  @computed('showEditor', 'showPreview', 'showJekyll')
+  /* jshint ignore:end */
+  panelWidth(showEditor, showPreview, showJekyll) {
+    let panes = 0;
+    if (showEditor) {
+      panes++;
     }
-    else {
-      return 100;
+    if (showPreview) {
+      panes++;
     }
+    if (showJekyll) {
+      panes++;
+    }
+    return (100/panes) - 1;
   },
 
   actions: {
@@ -27,6 +56,9 @@ export default Ember.Component.extend({
     },
     togglePreview() {
       this.toggleProperty('showPreview');
+    },
+    toggleJekyll() {
+      this.toggleProperty('showJekyll');
     }
   }
 });

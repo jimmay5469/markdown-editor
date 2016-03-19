@@ -11,6 +11,7 @@
     <div>
       <button {{action 'toggleEditor'}} class={{if showEditor 'toggle-button--active'}}>Editor</button>
       <button {{action 'togglePreview'}} class={{if showPreview 'toggle-button--active'}}>Preview</button>
+      <button {{action 'toggleJekyll'}} class={{if showJekyll 'toggle-button--active'}}>Jekyll</button>
     </div>
     <div>
       {{#if showEditor}}
@@ -27,6 +28,20 @@
       {{#if showPreview}}
         <div class='panel' style='width: {{panelWidth}}%;'>
           {{markdown-renderer value=markdown}}
+        </div>
+      {{/if}}
+      {{#if showJekyll}}
+        <div class='panel' style='width: {{panelWidth}}%;'>
+          <div>
+            {{jekyllFilename}}
+          </div>
+          {{content-editable
+            tagName='pre'
+            type='text'
+            class='content-editor'
+            value=jekyllPost
+            readonly=true
+          }}
         </div>
       {{/if}}
     </div>
