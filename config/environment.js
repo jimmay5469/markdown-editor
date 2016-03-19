@@ -17,7 +17,6 @@ module.exports = function(environment) {
       // Here you can pass flags/options to your application instance
       // when it is created
       jekyll: {
-        mainCss: '/css/main.css',
         siteTitle: 'Jimmy Lauzau',
         siteDescription: 'developer <a href="https://twitter.com/ahalogy">@ahalogy</a>, organizer <a href="https://twitter.com/embernati">@embernati</a>, mountain biker, hiker, and dad',
         baseUrl: 'http://www.jimmylauzau.com',
@@ -41,7 +40,6 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
     ENV.baseURL = '/';
-    ENV.APP.jekyll.mainCss = 'http://www.jimmylauzau.com/css/main.css';
   }
 
   if (environment === 'test') {
