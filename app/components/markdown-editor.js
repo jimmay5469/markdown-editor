@@ -5,8 +5,8 @@ import moment from 'moment';
 export default Ember.Component.extend({
   classNames: ['MarkdownEditorComponent'],
 
-  title: 'An awesome post title',
-  markdown: 'Hello __world__!',
+  title: '',
+  markdown: '',
 
   /* jshint ignore:start */
   @computed('title')
@@ -59,6 +59,9 @@ ${markdown.trim()}
     },
     toggleJekyll() {
       this.toggleProperty('showJekyll');
+    },
+    valuesUpdated() {
+      this.sendAction('onPostUpdate', this.get('title'), this.get('markdown'));
     }
   }
 });

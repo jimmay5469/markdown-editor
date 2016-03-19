@@ -5,6 +5,7 @@
       class='content-editor'
       value=title
       placeholder="Title"
+      key-up='valuesUpdated'
     }}
   {{/post.title}}
   {{#post.body}}
@@ -22,6 +23,7 @@
             class='content-editor markdown-input'
             value=markdown
             placeholder='Content'
+            key-up='valuesUpdated'
           }}
         </div>
       {{/if}}

@@ -8,7 +8,7 @@ export default Ember.Component.extend({
   /* jshint ignore:start */
   @computed('value')
   /* jshint ignore:end */
-  htmlValue(value) {
+  htmlValue(value='') {
     return marked(value);
   }
 });
