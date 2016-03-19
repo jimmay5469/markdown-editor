@@ -43,8 +43,7 @@ Make use of the many generators for code, try `ember help generate` for more det
 
 Using [ember-cli-github-pages](https://github.com/poetic/ember-cli-github-pages):
 
-* `ember github-pages:commit --message "Add meaningful message here"`
-* `git push jimmay5469 gh-pages`
+* `npm run deploy`
 
 ## Further Reading / Useful Links
 
