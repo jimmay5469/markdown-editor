@@ -13,29 +13,14 @@ export default Ember.Component.extend({
   showJekyll: false,
 
   panelWidth: computed('showEditor', 'showPreview', 'showJekyll', function() {
-    let { showEditor, showPreview, showJekyll } = this.getProperties('showEditor', 'showPreview', 'showJekyll');
-    let panes = 0;
-    if (showEditor) {
-      panes++;
-    }
-    if (showPreview) {
-      panes++;
-    }
-    if (showJekyll) {
-      panes++;
-    }
-    return (100/panes) - 1;
+    let paneVisibilities = this.getProperties('showEditor', 'showPreview', 'showJekyll');
+    let visiblePaneCount = Object.keys(paneVisibilities).filter((key)=>paneVisibilities[key]).length;
+    return (100/visiblePaneCount) - 1;
   }),
 
   actions: {
-    toggleEditor() {
-      this.toggleProperty('showEditor');
-    },
-    togglePreview() {
-      this.toggleProperty('showPreview');
-    },
-    toggleJekyll() {
-      this.toggleProperty('showJekyll');
+    togglePane(paneVisibility) {
+      this.toggleProperty(paneVisibility);
     },
     valuesUpdated() {
       this.sendAction('onPostUpdate', this.get('title'), this.get('markdown'));

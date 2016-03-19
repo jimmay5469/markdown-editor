@@ -10,9 +10,9 @@
   {{/post.title}}
   {{#post.body}}
     <div>
-      <button {{action 'toggleEditor'}} class={{if showEditor 'toggle-button--active'}}>Editor</button>
-      <button {{action 'togglePreview'}} class={{if showPreview 'toggle-button--active'}}>Preview</button>
-      <button {{action 'toggleJekyll'}} class={{if showJekyll 'toggle-button--active'}}>Jekyll</button>
+      <button {{action 'togglePane' 'showEditor'}} class={{if showEditor 'toggle-button--active'}}>Editor</button>
+      <button {{action 'togglePane' 'showPreview'}} class={{if showPreview 'toggle-button--active'}}>Preview</button>
+      <button {{action 'togglePane' 'showJekyll'}} class={{if showJekyll 'toggle-button--active'}}>Jekyll</button>
     </div>
     <div>
       {{#if showEditor}}
