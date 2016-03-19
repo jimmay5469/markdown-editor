@@ -1,6 +1,5 @@
 .MarkdownEditorComponent {
   .content-editor:focus {
-    width: 100%;
     outline: none;
   }
   .toggle-button--active {
@@ -10,11 +9,10 @@
     display: inline-block;
     vertical-align: top;
   }
-  .panel--hidden {
-    display: none;
+  .markdown-input:not(:empty) {
+    color: #FFFFFF;
   }
   .markdown-input {
-    color: #FFFFFF;
     background-color: #666666;
     min-height: 300px;
   }
