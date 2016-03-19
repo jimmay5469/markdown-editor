@@ -1,14 +1,13 @@
 import Ember from 'ember';
-import computed from 'ember-computed-decorators';  // jshint ignore:line
 import marked from 'npm:marked';
+
+const { computed } = Ember;
 
 export default Ember.Component.extend({
   value: '',
 
-  /* jshint ignore:start */
-  @computed('value')
-  /* jshint ignore:end */
-  htmlValue(value='') {
+  htmlValue: computed('value', function() {
+    let value = this.getWithDefault('value', '');
     return marked(value);
-  }
+  })
 });

@@ -1,6 +1,7 @@
 import Ember from 'ember';
-import computed from 'ember-computed-decorators';  // jshint ignore:line
 import moment from 'moment';
+
+const { computed } = Ember;
 
 export default Ember.Component.extend({
   classNames: ['MarkdownEditorComponent'],
@@ -8,17 +9,13 @@ export default Ember.Component.extend({
   title: '',
   markdown: '',
 
-  /* jshint ignore:start */
-  @computed('title')
-  /* jshint ignore:end */
-  jekyllFilename(title) {
+  jekyllFilename: computed('title', function() {
+    let title = this.get('title');
     return `${moment().format('YYYY-MM-DD')}-${Ember.String.dasherize(title.toLowerCase())}.md`;
-  },
+  }),
 
-  /* jshint ignore:start */
-  @computed('title', 'markdown')
-  /* jshint ignore:end */
-  jekyllPost(title, markdown) {
+  jekyllPost: computed('title', 'markdown', function() {
+    let { title, markdown } = this.getProperties('title', 'markdown');
     return `---
 layout: post
 title: "${title}"
@@ -27,16 +24,14 @@ date: ${moment().format('YYYY-MM-DD HH:mm:ss ZZ')}
 {% raw %}
 ${markdown.trim()}
 {% endraw %}`;
-  },
+  }),
 
   showEditor: true,
   showPreview: true,
   showJekyll: false,
 
-  /* jshint ignore:start */
-  @computed('showEditor', 'showPreview', 'showJekyll')
-  /* jshint ignore:end */
-  panelWidth(showEditor, showPreview, showJekyll) {
+  panelWidth: computed('showEditor', 'showPreview', 'showJekyll', function() {
+    let { showEditor, showPreview, showJekyll } = this.getProperties('showEditor', 'showPreview', 'showJekyll');
     let panes = 0;
     if (showEditor) {
       panes++;
@@ -48,7 +43,7 @@ ${markdown.trim()}
       panes++;
     }
     return (100/panes) - 1;
-  },
+  }),
 
   actions: {
     toggleEditor() {

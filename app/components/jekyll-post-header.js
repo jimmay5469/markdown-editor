@@ -1,28 +1,22 @@
 import Ember from 'ember';
-import computed from 'ember-computed-decorators';  // jshint ignore:line
 import moment from 'moment';
+
+const { computed } = Ember;
 
 export default Ember.Component.extend({
   title: '',
 
-  /* jshint ignore:start */
-  @computed
-  /* jshint ignore:end */
-  date() {
+  date: computed(function() {
     return moment();
-  },
+  }),
 
-  /* jshint ignore:start */
-  @computed('date')
-  /* jshint ignore:end */
-  jsonFormattedDate(date) {
+  jsonFormattedDate: computed('date', function() {
+    let date = this.get('date');
     return date.format();
-  },
+  }),
 
-  /* jshint ignore:start */
-  @computed('date')
-  /* jshint ignore:end */
-  displayFormattedDate(date) {
+  displayFormattedDate: computed('date', function() {
+    let date = this.get('date');
     return date.format('MMM D, YYYY');
-  }
+  })
 });
