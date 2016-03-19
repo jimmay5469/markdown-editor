@@ -11,8 +11,8 @@
   {{#post.body}}
     <div>
       <button {{action 'togglePane' 'showEditor'}} class={{if showEditor 'toggle-button--active'}}>Editor</button>
-      <button {{action 'togglePane' 'showPreview'}} class={{if showPreview 'toggle-button--active'}}>Preview</button>
       <button {{action 'togglePane' 'showJekyll'}} class={{if showJekyll 'toggle-button--active'}}>Jekyll</button>
+      <button {{action 'togglePane' 'showPreview'}} class={{if showPreview 'toggle-button--active'}}>Preview</button>
     </div>
     <div>
       {{#if showEditor}}
@@ -27,14 +27,14 @@
           }}
         </div>
       {{/if}}
-      {{#if showPreview}}
-        <div class='panel' style='width: {{panelWidth}}%;'>
-          {{markdown-renderer value=markdown}}
-        </div>
-      {{/if}}
       {{#if showJekyll}}
         <div class='panel' style='width: {{panelWidth}}%;'>
           {{raw-jekyll-post title=title markdown=markdown}}
+        </div>
+      {{/if}}
+      {{#if showPreview}}
+        <div class='panel' style='width: {{panelWidth}}%;'>
+          {{markdown-renderer value=markdown}}
         </div>
       {{/if}}
     </div>
