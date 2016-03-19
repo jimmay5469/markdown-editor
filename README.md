@@ -41,7 +41,10 @@ Make use of the many generators for code, try `ember help generate` for more det
 
 ### Deploying
 
-Specify what it takes to deploy your app.
+Using [ember-cli-github-pages](https://github.com/poetic/ember-cli-github-pages):
+
+* `ember github-pages:commit --message "Add meaningful message here"`
+* `git push jimmay5469 gh-pages`
 
 ## Further Reading / Useful Links
 
