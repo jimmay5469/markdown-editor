@@ -1,10 +1,12 @@
 <div>
   {{jekyllFilename}}
 </div>
-{{content-editable
-  tagName='pre'
-  type='text'
-  class='content-editor'
-  value=jekyllPost
-  readonly=true
-}}
+<pre>---
+layout: post
+title: "{{title}}"
+date: {{formattedDate}}
+---
+{% raw %}
+{{trimmedMarkdown}}
+{% endraw %}
+</pre>

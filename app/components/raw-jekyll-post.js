@@ -12,15 +12,12 @@ export default Ember.Component.extend({
     return `${moment().format('YYYY-MM-DD')}-${Ember.String.dasherize(title.toLowerCase())}.md`;
   }),
 
-  jekyllPost: computed('title', 'markdown', function() {
-    let { title, markdown } = this.getProperties('title', 'markdown');
-    return `---
-layout: post
-title: "${title}"
-date: ${moment().format('YYYY-MM-DD HH:mm:ss ZZ')}
----
-{% raw %}
-${markdown.trim()}
-{% endraw %}`;
+  formattedDate: computed(function() {
+    return moment().format('YYYY-MM-DD HH:mm:ss ZZ');
+  }),
+
+  trimmedMarkdown: computed('markdown', function() {
+    let markdown = this.get('markdown');
+    return markdown.trim();
   })
 });
