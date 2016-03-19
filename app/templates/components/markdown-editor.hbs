@@ -34,16 +34,7 @@
       {{/if}}
       {{#if showJekyll}}
         <div class='panel' style='width: {{panelWidth}}%;'>
-          <div>
-            {{jekyllFilename}}
-          </div>
-          {{content-editable
-            tagName='pre'
-            type='text'
-            class='content-editor'
-            value=jekyllPost
-            readonly=true
-          }}
+          {{raw-jekyll-post title=title markdown=markdown}}
         </div>
       {{/if}}
     </div>
