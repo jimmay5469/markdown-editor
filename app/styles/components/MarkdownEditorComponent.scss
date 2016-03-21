@@ -15,5 +15,8 @@
   .markdown-input {
     background-color: #666666;
     min-height: 300px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
   }
 }

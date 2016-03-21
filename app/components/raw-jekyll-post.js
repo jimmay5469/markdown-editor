@@ -4,6 +4,8 @@ import moment from 'moment';
 const { computed } = Ember;
 
 export default Ember.Component.extend({
+  classNames: ['RawJekyllPostComponent'],
+
   title: '',
   markdown: '',
 
