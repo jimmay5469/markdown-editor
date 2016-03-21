@@ -27,12 +27,10 @@ export default Ember.Component.extend({
       this.toggleProperty(paneVisibility);
     },
     titleUpdated(title) {
-      this.set('title', title);
-      this.sendAction('onTitleUpdate', this.get('title'));
+      this.sendAction('onTitleUpdate', title);
     },
     markdownUpdated(markdown) {
-      this.set('markdown', markdown);
-      this.sendAction('onMarkdownUpdate', this.get('markdown'));
+      this.sendAction('onMarkdownUpdate', markdown);
     }
   }
 });
