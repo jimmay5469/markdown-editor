@@ -1,11 +1,13 @@
 import Ember from 'ember';
 
+const { debounce } = Ember.run;
+
 export default Ember.Route.extend({
   model() {
     return JSON.parse(localStorage.getItem('markdownPost'));
   },
   triggerSave() {
-    Ember.run.debounce(this, this.updateLocalStorage, 1000);
+    debounce(this, this.updateLocalStorage, 1000);
   },
   updateLocalStorage() {
     localStorage.setItem('markdownPost', JSON.stringify({
