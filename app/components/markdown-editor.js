@@ -7,6 +7,8 @@ export default Ember.Component.extend({
 
   title: '',
   markdown: '',
+  titleUpdated: null,
+  markdownUpdated: null,
 
   showEditor: true,
   showPreview: true,
@@ -25,12 +27,6 @@ export default Ember.Component.extend({
   actions: {
     togglePane(paneVisibility) {
       this.toggleProperty(paneVisibility);
-    },
-    titleUpdated(title) {
-      this.sendAction('onTitleUpdate', title);
-    },
-    markdownUpdated(markdown) {
-      this.sendAction('onMarkdownUpdate', markdown);
     }
   }
 });

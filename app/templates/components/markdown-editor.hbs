@@ -5,14 +5,14 @@
       class='content-editor'
       value=title
       placeholder="Title"
-      key-up=(action 'titleUpdated')
+      key-up=(action titleUpdated)
     }}
   {{/post.title}}
   {{#post.body}}
     <div>
-      <button {{action 'togglePane' 'showEditor'}} class={{if showEditor 'toggle-button--active'}}>Editor</button>
-      <button {{action 'togglePane' 'showJekyll'}} class={{if showJekyll 'toggle-button--active'}}>Jekyll</button>
-      <button {{action 'togglePane' 'showPreview'}} class={{if showPreview 'toggle-button--active'}}>Preview</button>
+      <button {{action (action 'togglePane' 'showEditor')}} class={{if showEditor 'toggle-button--active'}}>Editor</button>
+      <button {{action (action 'togglePane' 'showJekyll')}} class={{if showJekyll 'toggle-button--active'}}>Jekyll</button>
+      <button {{action (action 'togglePane' 'showPreview')}} class={{if showPreview 'toggle-button--active'}}>Preview</button>
     </div>
     <div>
       {{#if showEditor}}
@@ -24,7 +24,7 @@
             value=markdown
             placeholder='Content'
             stringInterpolator=cleanupMarkdown
-            key-up=(action 'markdownUpdated')
+            key-up=(action markdownUpdated)
           }}
         </div>
       {{/if}}

@@ -1,7 +1,7 @@
 {{markdown-editor
   title=(readonly model.title)
   markdown=(readonly model.markdown)
-  onTitleUpdate=(route-action 'titleUpdated')
-  onMarkdownUpdate=(route-action 'markdownUpdated')
+  titleUpdated=(route-action 'titleUpdated')
+  markdownUpdated=(route-action 'markdownUpdated')
 }}
 {{outlet}}
