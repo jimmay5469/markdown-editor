@@ -1,2 +1,7 @@
-{{markdown-editor title=model.title markdown=model.markdown onPostUpdate='postUpdated'}}
+{{markdown-editor
+  title=(readonly model.title)
+  markdown=(readonly model.markdown)
+  onTitleUpdate='titleUpdated'
+  onMarkdownUpdate='markdownUpdated'
+}}
 {{outlet}}

@@ -16,10 +16,5 @@ export default Ember.Component.extend({
 
   formattedDate: computed(function() {
     return moment().format('YYYY-MM-DD HH:mm:ss ZZ');
-  }),
-
-  trimmedMarkdown: computed('markdown', function() {
-    let markdown = this.get('markdown');
-    return markdown.trim();
   })
 });

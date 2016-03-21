@@ -18,12 +18,21 @@ export default Ember.Component.extend({
     return (100/visiblePaneCount) - 1;
   }),
 
+  cleanupMarkdown(markdown) {
+    return markdown.trim();
+  },
+
   actions: {
     togglePane(paneVisibility) {
       this.toggleProperty(paneVisibility);
     },
-    valuesUpdated() {
-      this.sendAction('onPostUpdate', this.get('title'), this.get('markdown'));
+    titleUpdated(title) {
+      this.set('title', title);
+      this.sendAction('onTitleUpdate', this.get('title'));
+    },
+    markdownUpdated(markdown) {
+      this.set('markdown', markdown);
+      this.sendAction('onMarkdownUpdate', this.get('markdown'));
     }
   }
 });
