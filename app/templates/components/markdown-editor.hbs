@@ -16,7 +16,7 @@
     </div>
     <div>
       {{#if showEditor}}
-        <div class='panel' style='width: {{panelWidth}}%;'>
+        <div class='panel' style={{panelStyle}}>
           {{content-editable
             tagName='pre'
             type='text'
@@ -29,12 +29,12 @@
         </div>
       {{/if}}
       {{#if showJekyll}}
-        <div class='panel' style='width: {{panelWidth}}%;'>
+        <div class='panel' style={{panelStyle}}>
           {{raw-jekyll-post title=title markdown=markdown}}
         </div>
       {{/if}}
       {{#if showPreview}}
-        <div class='panel' style='width: {{panelWidth}}%;'>
+        <div class='panel' style={{panelStyle}}>
           {{markdown-renderer value=markdown}}
         </div>
       {{/if}}

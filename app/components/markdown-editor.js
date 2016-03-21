@@ -19,6 +19,10 @@ export default Ember.Component.extend({
     let visiblePaneCount = Object.keys(paneVisibilities).filter((key)=>paneVisibilities[key]).length;
     return (100/visiblePaneCount) - 1;
   }),
+  panelStyle: computed('panelWidth', function() {
+    let panelWidth = this.get('panelWidth');
+    return Ember.String.htmlSafe(`width: ${panelWidth}%;`);
+  }),
 
   cleanupMarkdown(markdown) {
     return markdown.trim();
