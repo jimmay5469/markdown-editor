@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import moment from 'moment';
 
 const { computed } = Ember;
 
@@ -13,6 +14,10 @@ export default Ember.Component.extend({
   showEditor: true,
   showPreview: true,
   showJekyll: false,
+
+  date: computed(function() {
+    return moment();
+  }).volatile(),
 
   panelWidth: computed('showEditor', 'showPreview', 'showJekyll', function() {
     let paneVisibilities = this.getProperties('showEditor', 'showPreview', 'showJekyll');

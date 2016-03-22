@@ -1,20 +1,21 @@
 import Ember from 'ember';
-import moment from 'moment';
 
 const { computed } = Ember;
 
 export default Ember.Component.extend({
   classNames: ['RawJekyllPostComponent'],
 
-  title: '',
-  markdown: '',
+  title: null,
+  markdown: null,
+  date: null,
 
-  jekyllFilename: computed('title', function() {
-    let title = this.get('title');
-    return `${moment().format('YYYY-MM-DD')}-${Ember.String.dasherize(title.replace(/[^\w\s]/gi, '').toLowerCase())}.md`;
+  jekyllFilename: computed('date', 'title', function() {
+    let { date, title } = this.getProperties('date', 'title');
+    return `${date.format('YYYY-MM-DD')}-${Ember.String.dasherize(title.replace(/[^\w\s]/gi, '').toLowerCase())}.md`;
   }),
 
-  formattedDate: computed(function() {
-    return moment().format('YYYY-MM-DD HH:mm:ss ZZ');
+  formattedDate: computed('date', function() {
+    let date = this.get('date');
+    return date.format('YYYY-MM-DD HH:mm:ss ZZ');
   })
 });

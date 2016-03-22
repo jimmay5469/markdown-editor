@@ -1,14 +1,10 @@
 import Ember from 'ember';
-import moment from 'moment';
 
 const { computed } = Ember;
 
 export default Ember.Component.extend({
-  title: '',
-
-  date: computed(function() {
-    return moment();
-  }),
+  title: null,
+  date: null,
 
   jsonFormattedDate: computed('date', function() {
     let date = this.get('date');

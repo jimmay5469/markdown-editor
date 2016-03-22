@@ -1,5 +1,5 @@
 {{#jekyll-post-layout as |post|}}
-  {{#post.title}}
+  {{#post.title date=date}}
     {{content-editable
       type="text"
       class='content-editor'
@@ -30,7 +30,7 @@
       {{/if}}
       {{#if showJekyll}}
         <div class='panel' style={{panelStyle}}>
-          {{raw-jekyll-post title=title markdown=markdown}}
+          {{raw-jekyll-post title=title markdown=markdown date=date}}
         </div>
       {{/if}}
       {{#if showPreview}}
