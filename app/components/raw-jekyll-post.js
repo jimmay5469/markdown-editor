@@ -11,7 +11,7 @@ export default Ember.Component.extend({
 
   jekyllFilename: computed('title', function() {
     let title = this.get('title');
-    return `${moment().format('YYYY-MM-DD')}-${Ember.String.dasherize(title.toLowerCase())}.md`;
+    return `${moment().format('YYYY-MM-DD')}-${Ember.String.dasherize(title.replace(/[^\w\s]/gi, '').toLowerCase())}.md`;
   }),
 
   formattedDate: computed(function() {
