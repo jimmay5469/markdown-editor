@@ -6,8 +6,8 @@ const { computed } = Ember;
 export default Ember.Component.extend({
   classNames: ['MarkdownEditorComponent'],
 
-  title: '',
-  markdown: '',
+  title: null,
+  markdown: null,
   titleUpdated: null,
   markdownUpdated: null,
 
