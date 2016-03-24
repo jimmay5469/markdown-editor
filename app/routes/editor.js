@@ -1,8 +1,11 @@
 import Ember from 'ember';
 
-const { debounce } = Ember.run;
+const {
+  Route,
+  run: debounce
+} = Ember;
 
-export default Ember.Route.extend({
+export default Route.extend({
   model() {
     return JSON.parse(localStorage.getItem('markdownPost'));
   },

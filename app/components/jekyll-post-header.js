@@ -1,8 +1,11 @@
 import Ember from 'ember';
 
-const { computed } = Ember;
+const {
+  Component,
+  computed
+} = Ember;
 
-export default Ember.Component.extend({
+export default Component.extend({
   title: null,
   date: null,
 

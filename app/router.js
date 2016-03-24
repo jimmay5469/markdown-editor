@@ -1,12 +1,14 @@
 import Ember from 'ember';
 import config from './config/environment';
 
-const Router = Ember.Router.extend({
+const { Router } = Ember;
+
+const MarkdownEditorRouter = Router.extend({
   location: config.locationType
 });
 
-Router.map(function() {
+MarkdownEditorRouter.map(function() {
   this.route('editor', { path: '/' });
 });
 
-export default Router;
+export default MarkdownEditorRouter;

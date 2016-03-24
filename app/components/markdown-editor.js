@@ -1,9 +1,13 @@
 import Ember from 'ember';
 import moment from 'moment';
 
-const { computed } = Ember;
+const {
+  Component,
+  computed,
+  String: { htmlSafe }
+} = Ember;
 
-export default Ember.Component.extend({
+export default Component.extend({
   classNames: ['MarkdownEditorComponent'],
 
   title: null,
@@ -26,7 +30,7 @@ export default Ember.Component.extend({
   }),
   panelStyle: computed('panelWidth', function() {
     let panelWidth = this.get('panelWidth');
-    return Ember.String.htmlSafe(`width: ${panelWidth}%;`);
+    return htmlSafe(`width: ${panelWidth}%;`);
   }),
 
   cleanupMarkdown(markdown) {

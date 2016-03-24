@@ -1,8 +1,12 @@
 import Ember from 'ember';
 
-const { computed } = Ember;
+const {
+  Component,
+  computed,
+  String: { dasherize }
+} = Ember;
 
-export default Ember.Component.extend({
+export default Component.extend({
   classNames: ['RawJekyllPostComponent'],
 
   title: null,
@@ -11,7 +15,7 @@ export default Ember.Component.extend({
 
   jekyllFilename: computed('date', 'title', function() {
     let { date, title } = this.getProperties('date', 'title');
-    return `${date.format('YYYY-MM-DD')}-${Ember.String.dasherize(title.replace(/[^\w\s]/gi, '').toLowerCase())}.md`;
+    return `${date.format('YYYY-MM-DD')}-${dasherize(title.replace(/[^\w\s]/gi, '').toLowerCase())}.md`;
   }),
 
   formattedDate: computed('date', function() {

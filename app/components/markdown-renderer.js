@@ -1,9 +1,12 @@
 import Ember from 'ember';
 import marked from 'npm:marked';
 
-const { computed } = Ember;
+const {
+  Component,
+  computed
+} = Ember;
 
-export default Ember.Component.extend({
+export default Component.extend({
   value: '',
 
   htmlValue: computed('value', function() {
