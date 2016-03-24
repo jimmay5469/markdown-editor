@@ -4,6 +4,8 @@ import moment from 'moment';
 const {
   Component,
   computed,
+  get,
+  getProperties,
   String: { htmlSafe }
 } = Ember;
 
@@ -24,12 +26,12 @@ export default Component.extend({
   }).volatile(),
 
   panelWidth: computed('showEditor', 'showPreview', 'showJekyll', function() {
-    let paneVisibilities = this.getProperties('showEditor', 'showPreview', 'showJekyll');
+    let paneVisibilities = getProperties(this, 'showEditor', 'showPreview', 'showJekyll');
     let visiblePaneCount = Object.keys(paneVisibilities).filter((key)=>paneVisibilities[key]).length;
     return (100/visiblePaneCount) - 1;
   }),
   panelStyle: computed('panelWidth', function() {
-    let panelWidth = this.get('panelWidth');
+    let panelWidth = get(this, 'panelWidth');
     return htmlSafe(`width: ${panelWidth}%;`);
   }),
 

@@ -1,8 +1,10 @@
 import Ember from 'ember';
 
 const {
+  get,
   Route,
-  run: debounce
+  run: { debounce },
+  set
 } = Ember;
 
 export default Route.extend({
@@ -14,17 +16,17 @@ export default Route.extend({
   },
   updateLocalStorage() {
     localStorage.setItem('markdownPost', JSON.stringify({
-      title: this.get('controller.model.title'),
-      markdown: this.get('controller.model.markdown')
+      title: get(this, 'controller.model.title'),
+      markdown: get(this, 'controller.model.markdown')
     }));
   },
   actions: {
     titleUpdated(title) {
-      this.set('controller.model.title', title);
+      set(this, 'controller.model.title', title);
       this.triggerSave();
     },
     markdownUpdated(markdown) {
-      this.set('controller.model.markdown', markdown);
+      set(this, 'controller.model.markdown', markdown);
       this.triggerSave();
     }
   }

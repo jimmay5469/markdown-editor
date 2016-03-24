@@ -3,6 +3,8 @@ import Ember from 'ember';
 const {
   Component,
   computed,
+  get,
+  getProperties,
   String: { dasherize }
 } = Ember;
 
@@ -14,12 +16,12 @@ export default Component.extend({
   date: null,
 
   jekyllFilename: computed('date', 'title', function() {
-    let { date, title } = this.getProperties('date', 'title');
+    let { date, title } = getProperties(this, 'date', 'title');
     return `${date.format('YYYY-MM-DD')}-${dasherize(title.replace(/[^\w\s]/gi, '').toLowerCase())}.md`;
   }),
 
   formattedDate: computed('date', function() {
-    let date = this.get('date');
+    let date = get(this, 'date');
     return date.format('YYYY-MM-DD HH:mm:ss ZZ');
   })
 });

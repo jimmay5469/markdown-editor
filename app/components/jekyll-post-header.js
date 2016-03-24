@@ -2,7 +2,8 @@ import Ember from 'ember';
 
 const {
   Component,
-  computed
+  computed,
+  get
 } = Ember;
 
 export default Component.extend({
@@ -10,12 +11,12 @@ export default Component.extend({
   date: null,
 
   jsonFormattedDate: computed('date', function() {
-    let date = this.get('date');
+    let date = get(this, 'date');
     return date.format();
   }),
 
   displayFormattedDate: computed('date', function() {
-    let date = this.get('date');
+    let date = get(this, 'date');
     return date.format('MMM D, YYYY');
   })
 });
